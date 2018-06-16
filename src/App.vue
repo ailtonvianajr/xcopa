@@ -1,7 +1,8 @@
 <template lang="pug">
   #app
     nav-bar
-    router-view
+    .content
+      router-view
 </template>
 
 <script>
@@ -17,7 +18,16 @@ export default {
 body
   margin 0
   padding 0
+  background-color #f9f9f9
+
 #app
   display flex
+  flex-direction column
   font-family 'Roboto', Helvetica, Arial, sans-serif
+
+.content
+  width 80%
+  align-self center
+  display flex
+  padding 30px 0
 </style>
