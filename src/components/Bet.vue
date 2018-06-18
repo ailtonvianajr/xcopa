@@ -1,5 +1,5 @@
 <template lang="pug">
-  #bet
+  .bet
     .main
       .teams
         .team
@@ -35,7 +35,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-#bet
+.bet
   width 100%
   display flex
   flex-direction column
@@ -125,7 +125,7 @@ export default {
     display flex
     justify-content space-between
     align-items center
-    background-color #f5f5f5
+    background-color #7226ea
     border-radius 0 0 5px 5px
     padding 10px 15px
     box-sizing border-box
@@ -134,7 +134,7 @@ export default {
     .bets
       font-size 15px
       font-weight 600
-      color #555
+      color white
 
     .users
       display flex

@@ -1,14 +1,19 @@
 <template lang="pug">
   #home
     .main
-      .wrap-bet
-        bet
-      .wrap-bet
-        bet
-      .wrap-bet
-        bet
-      .wrap-bet
-        bet
+      h2.title Olá&nbsp;
+        span.user-name Ailton
+        span , seja bem-vindo
+      h4.subtitle Aqui estão todas as apostas
+      .bets
+        .wrap-bet
+          bet
+        .wrap-bet
+          bet
+        .wrap-bet
+          bet
+        .wrap-bet
+          bet
     .sidebar
       classification
 </template>
@@ -19,33 +24,50 @@ import Classification from '@/components/Classification'
 
 export default {
   name: 'home',
-  components: { Bet, Classification },
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
-  }
+  components: { Bet, Classification }
 }
 </script>
 
 <style scoped lang="stylus">
+
 #home
   flex 1
   display flex
   justify-content space-between
 
   .main
-    flex .69
+    flex .68
     display flex
+    flex-direction column
     flex-wrap wrap
 
-    .wrap-bet
-      width 50%
-      padding 0 0 15px
-      box-sizing border-box
+    .title
+      font-size 30px
+      font-weight 500
+      color #333
+      margin 10px 0 5px
 
-      &:nth-child(even)
-        padding-left 15px
+      .user-name
+        color #7226EA
+        font-weight 600
+
+    .subtitle
+      font-size 20px
+      font-weight 400
+      color #777
+      margin 0 0 30px
+
+    .bets
+      display flex
+      flex-wrap wrap
+
+      .wrap-bet
+        width 50%
+        padding 0 0 30px
+        box-sizing border-box
+
+        &:nth-child(even)
+          padding-left 30px
 
   .sidebar
     flex .29

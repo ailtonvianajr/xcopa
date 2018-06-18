@@ -1,5 +1,5 @@
 <template lang="pug">
-	#classification
+	.classification
 		h2.title Classificação
 		.users
 			.user
@@ -46,7 +46,7 @@ export default {
 </script>
 
 <style lang="stylus">
-#classification
+.classification
 	display flex
 	flex-direction column
 	background-color #7226EA
@@ -56,7 +56,7 @@ export default {
 		font-size 25px
 		font-weight 700
 		color white
-		margin 25px 20px 20px
+		margin 30px 30px 20px
 
 		&:after
 			content ''
@@ -76,7 +76,10 @@ export default {
 			flex-direction row
 			justify-content space-between
 			align-items center
-			padding 14px 20px
+			padding 14px 30px
+
+			&:last-child
+				margin-bottom 20px
 
 			&.highlighted
 				background-color #ffc800
