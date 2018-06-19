@@ -7,7 +7,9 @@
 					li
 						router-link.item(:to="{ name : 'home' }") Início
 					li
-						router-link.item(:to="{ name : 'bets' }") Apostas
+						router-link.item(:to="{ name : 'games' }") Jogos
+					li
+						router-link.item(:to="{ name : 'teams' }") Equipes
 					li
 						router-link.item(:to="{ name : 'ranking' }") Ranking
 			.user
@@ -69,6 +71,11 @@ $primary-color = #7226EA
 								mask-image url('../assets/icons/puzzle.svg')
 
 					&:nth-child(3)
+						.item
+							&:before
+								mask-image url('../assets/icons/shield.svg')
+
+					&:nth-child(4)
 						.item
 							&:before
 								mask-image url('../assets/icons/bar-chart.svg')

@@ -1,31 +1,29 @@
 <template lang="pug">
-	#profile
+	#team-details
 		.main
 			loading(v-if="false")
-			.avatar
-			h4.name Ailton Viana
+			h2.title Detalhes da equipe
+			.avatar(style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg')")
+			h4.name Brasil
 			form.form
-				text-field(type="text", placeholder="Nome")
-				text-field(type="text", placeholder="Sobrenome")
-				text-field(type="text", placeholder="E-mail")
+				text-field(type="text", placeholder="Nome", value="Brasil")
 				.buttons
-					x-button(template="outline", link="change-password", value="Alterar Senha")
+					x-button(template="outline", link="back", value="Voltar")
+					x-button(template="danger", value="Excluir")
 					x-button(template="primary", value="Salvar")
 </template>
 
 <script>
-import TextField from '@/components/TextField'
 import XButton from '@/components/XButton'
-import Loading from '@/components/Loading'
+import TextField from '@/components/TextField'
 
 export default {
-	name: 'profile',
-	components: { TextField, XButton, Loading }
+	components: { XButton, TextField }
 }
 </script>
 
-<style lang="stylus">
-#profile
+<style scoped lang="stylus">
+#team-details
 	flex 1
 	display flex
 	justify-content center
@@ -47,7 +45,6 @@ export default {
 			width 80px
 			height 80px
 			border-radius 50%
-			background-image url('https://randomuser.me/api/portraits/men/79.jpg')
 			background-repeat no-repeat
 			background-size cover
 			background-position center
@@ -72,7 +69,7 @@ export default {
 					width 100%
 					height 100%
 					display block
-					mask-image url('../assets/icons/edit.svg')
+					mask-image url('../../assets/icons/edit.svg')
 					mask-repeat no-repeat
 					mask-size 30%
 					mask-position center
@@ -92,7 +89,10 @@ export default {
 				margin 15px 0 0
 
 				input
-					&:first-child
+					&:nth-child(1)
+						margin-right 15px
+
+					&:nth-child(2)
 						margin-right 15px
 
 </style>

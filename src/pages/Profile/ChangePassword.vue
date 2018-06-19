@@ -18,12 +18,11 @@ import XButton from '@/components/XButton'
 import Loading from '@/components/Loading'
 
 export default {
-	name: 'change-password',
 	components: { TextField, XButton, Loading }
 }
 </script>
 
-<style lang="stylus">
+<style scoped lang="stylus">
 #profile
 	flex 1
 	display flex

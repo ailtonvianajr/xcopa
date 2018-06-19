@@ -6,13 +6,7 @@
         span , seja bem-vindo
       h4.subtitle Aqui estão todas as apostas
       .bets
-        .wrap-bet
-          bet
-        .wrap-bet
-          bet
-        .wrap-bet
-          bet
-        .wrap-bet
+        .wrap-bet(v-for="item in 4")
           bet
     .sidebar
       classification
@@ -23,7 +17,6 @@ import Bet from '@/components/Bet'
 import Classification from '@/components/Classification'
 
 export default {
-  name: 'home',
   components: { Bet, Classification }
 }
 </script>

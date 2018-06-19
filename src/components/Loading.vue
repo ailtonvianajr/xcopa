@@ -8,7 +8,7 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style scoped lang="stylus">
 @-webkit-keyframes load8 {
   0% {
     -webkit-transform: rotate(0deg);

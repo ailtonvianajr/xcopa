@@ -28,6 +28,8 @@ export default {
     buttonClasses () {
       return {
         'primary': this.template == 'primary',
+        'danger': this.template == 'danger',
+        'gold': this.template == 'gold',
         'outline': this.template == 'outline'
       }
     }
@@ -35,7 +37,7 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style scoped lang="stylus">
 .button
   flex 1
   cursor pointer
@@ -58,6 +60,20 @@ export default {
 
     &:hover
       background-color #5f16d2
+
+  &.danger
+    background-color #da1732
+    color white
+
+    &:hover
+      background-color #c50e27
+
+  &.gold
+    background-color #FFAB00
+    color white
+
+    &:hover
+      background-color #FF9800
 
   &.outline
     background-color transparent

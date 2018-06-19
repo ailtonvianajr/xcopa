@@ -45,7 +45,7 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style scoped lang="stylus">
 .classification
 	display flex
 	flex-direction column

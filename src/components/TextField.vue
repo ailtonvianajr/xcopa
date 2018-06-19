@@ -8,7 +8,7 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style scoped lang="stylus">
 .text-field
   font-size 16px
   color #555
