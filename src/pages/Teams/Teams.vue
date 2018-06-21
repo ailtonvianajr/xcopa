@@ -5,14 +5,34 @@
 			.container
 				button-list(title="Novo", subtitle="Criar nova equipe", link="add-team")
 				span.divider Equipes ativas
-				button-list(template="flag", flag="https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg", title="Brasil", link="team-details")
+				button-list(
+					v-for="(team, key) in teams",
+					:key="key",
+					template="flag",
+					:flag="team.image",
+					:title="team.name",
+					link="team-details")
 </template>
 
 <script>
+import mFirebase from '@/modules/firebase-setup'
 import ButtonList from '@/components/ButtonList'
 
+
+const db = mFirebase.firestore()
+
 export default {
-	components: { ButtonList }
+	components: { ButtonList },
+	data: () => ({
+		teams: []
+	}),
+	created() {
+		db.collection("teams").get().then(querySnapshot => {
+			querySnapshot.forEach(doc => {
+				this.teams.push(doc.data())
+			})
+		})
+	}
 }
 </script>
 
