@@ -12,11 +12,24 @@
 </template>
 
 <script>
+import mFirebase from '@/modules/firebase-setup'
 import XButton from '@/components/XButton'
 import TextField from '@/components/TextField'
 
+
+const db = mFirebase.firestore()
+
 export default {
-	components: { XButton, TextField }
+	components: { XButton, TextField },
+	methods: {
+		addTeam() {
+			// db.collection("teams").add({
+			// 	name: ''
+			// })
+			// .then(doc => console.log(doc.id))
+			// .catch(error => console.log(error))
+		}
+	}
 }
 </script>
 
