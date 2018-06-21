@@ -1,14 +1,21 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
 import Home from '@/pages/Home'
+
 import Games from '@/pages/Games/Games'
 import AddGame from '@/pages/Games/AddGame'
 import GameDetails from '@/pages/Games/GameDetails'
+
 import Teams from '@/pages/Teams/Teams'
 import AddTeam from '@/pages/Teams/AddTeam'
 import TeamDetails from '@/pages/Teams/TeamDetails'
+
 import Betting from '@/pages/Betting'
 import Hunches from '@/pages/Hunches'
+
+import SignIn from '@/pages/Auth/SignIn'
+
 import Profile from '@/pages/Profile/Profile'
 import ChangePassword from '@/pages/Profile/ChangePassword'
 
@@ -60,6 +67,13 @@ export default new Router({
       path: '/hunches',
       name: 'hunches',
       component: Hunches
+    },
+    {
+      path: '/sign-in',
+      name: 'sign-in',
+      components: {
+        auth: SignIn
+      }
     },
     {
       path: '/profile',
