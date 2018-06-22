@@ -5,17 +5,17 @@
 			.menu
 				ul
 					li
-						router-link.item(:to="{ name : 'home' }") Início
+						router-link.item(:to="{ name : 'Home' }") Início
 					li
-						router-link.item(:to="{ name : 'games' }") Jogos
+						router-link.item(:to="{ name : 'Games' }") Jogos
 					li
-						router-link.item(:to="{ name : 'teams' }") Equipes
+						router-link.item(:to="{ name : 'Teams' }") Equipes
 					li
-						router-link.item(:to="{ name : 'ranking' }") Ranking
+						router-link.item(:to="{ name : 'Ranking' }") Ranking
 			.user
 				.points 36 pontos
-				router-link.avatar(:to="{ name: 'profile' }")
-				button.sign-out
+				router-link.avatar(:to="{ name: 'Profile' }")
+				button.sign-out(@click="$router.push({ name: 'SignIn' })")
 </template>
 
 <script>

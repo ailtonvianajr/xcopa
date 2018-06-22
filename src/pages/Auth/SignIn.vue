@@ -10,6 +10,7 @@ import Bet from '@/components/Bet'
 import Classification from '@/components/Classification'
 
 export default {
+  name: 'SignIn',
   components: { Bet, Classification }
 }
 </script>

@@ -1,9 +1,8 @@
 <template lang="pug">
   #app
-    nav-bar(v-if="false")
+    nav-bar(v-if="true")
     .content
       transition(name="slide-fade", mode="out-in", duration="300")
-        router-view(name="auth")
         router-view
 </template>
 
@@ -12,10 +11,7 @@ import NavBar from '@/components/NavBar'
 
 export default {
   name: 'App',
-  components: { NavBar },
-  created () {
-    console.log(this.$router.history.current.name)
-  }
+  components: { NavBar }
 }
 </script>
 

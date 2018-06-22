@@ -25,64 +25,62 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'Home',
       component: Home
     },
     {
       path: '/games',
-      name: 'games',
+      name: 'Games',
       component: Games
     },
     {
       path: '/games/add',
-      name: 'add-game',
+      name: 'AddGame',
       component: AddGame
     },
     {
       path: '/games/details',
-      name: 'game-details',
+      name: 'GameDetails',
       component: GameDetails
     },
     {
       path: '/teams',
-      name: 'teams',
+      name: 'Teams',
       component: Teams
     },
     {
       path: '/teams/add',
-      name: 'add-team',
+      name: 'AddTeam',
       component: AddTeam
     },
     {
       path: '/teams/details',
-      name: 'team-details',
+      name: 'TeamDetails',
       component: TeamDetails
     },
     {
       path: '/betting',
-      name: 'betting',
+      name: 'Betting',
       component: Betting
     },
     {
       path: '/hunches',
-      name: 'hunches',
+      name: 'Hunches',
       component: Hunches
     },
     {
-      path: '/sign-in',
-      name: 'sign-in',
-      components: {
-        auth: SignIn
-      }
+      path: '/signin',
+      name: 'SignIn',
+      component: SignIn
     },
     {
       path: '/profile',
-      name: 'profile',
+      name: 'Profile',
       component: Profile
     },
     {
       path: '/change-password',
-      name: 'change-password',
+      name: 'ChangePassword',
       component: ChangePassword
     }
   ]
