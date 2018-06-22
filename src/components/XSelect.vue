@@ -1,14 +1,19 @@
 <template lang="pug">
-  select.select
-    option(v-for="option in options", index="option.value", value="option.value") {{ option.name }}
+  select.select(@input="setSelection($event.target.value)")
+    option(v-for="option in options",
+      :index="option.id",
+      :value="option.id") {{ option.name }}
 </template>
 
 <script>
 export default {
   name: 'x-select',
+  data: () => ({
+    selected: { }
+  }),
   props: {
     options: {
-      type: Object,
+      type: Array,
       required: true
     }
   },
@@ -19,6 +24,9 @@ export default {
       } else if ( this.link && this.link == 'back' ) {
         this.$router.go(-1)
       }
+    },
+    setSelection(id) {
+      this.$emit('onSelect', this.options.find(team => team.id == id))
     }
   },
   computed: {

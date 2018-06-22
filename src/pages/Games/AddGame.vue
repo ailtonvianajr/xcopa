@@ -4,32 +4,53 @@
 			loading(v-if="false")
 			h2.title Novo jogo
 			form.form
-				x-select(:options="teams")
-				x-select(:options="teams")
-				text-field(type="date", placeholder="Data")
+				x-select(:options="teams", @onSelect="getFirstTeam")
+				x-select(:options="teams", @onSelect="getSecondTeam")
+				text-field(type="date", placeholder="Data", @onSelectDate="emitDate")
 				.buttons
 					x-button(template="outline", link="back", value="Cancelar")
-					x-button(template="primary", value="Salvar")
+					x-button(template="primary", value="Salvar", @onClick="addGame")
 </template>
 
 <script>
+import moment from 'moment'
+import firebase from '@/modules/firebase-setup'
 import TextField from '@/components/TextField'
 import XButton from '@/components/XButton'
 import XSelect from '@/components/XSelect'
 import Loading from '@/components/Loading'
 
+
+const db = firebase.firestore()
+
 export default {
 	components: { TextField, XButton, XSelect, Loading },
 	data: () => ({
-		teams: [
-			{ value: 0, name: 'Brasil' },
-			{ value: 1, name: 'Argentina' },
-			{ value: 2, name: 'Alemanha' },
-			{ value: 3, name: 'Inglaterra' },
-			{ value: 4, name: 'Espanha' },
-			{ value: 5, name: 'França' }
-		]
-	})
+		teams: []
+	}),
+	created() {
+		db.collection("teams").get().then(querySnapshot => {
+			querySnapshot.forEach(doc => {
+				let team = doc.data()
+				team.id = doc.id
+				this.teams.push(team)
+			})
+		})
+	},
+	methods: {
+		getFirstTeam(team) {
+			console.log('first:', team)
+		},
+		getSecondTeam(team) {
+			console.log('second:', team)
+		},
+		emitDate(value) {
+			console.log('data:', value)
+		},
+		addGame() {
+			console.log('Salva jogo...')
+		}
+	}
 }
 </script>
 

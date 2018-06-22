@@ -3,16 +3,27 @@
 		.main
 			h2.title Jogos
 			.container
-				button-list(title="Novo", subtitle="Criar novo jogo", link="add-game")
+				button-list(title="Novo", subtitle="Criar novo jogo", link="AddGame")
 				span.divider Jogos ativos
-				button-list(template="game", title="Brasil x Suiça", link="game-details")
+				button-list(template="game", title="Brasil x Suiça", link="GameDetails")
 </template>
 
 <script>
+import firebase from '@/modules/firebase-setup'
 import ButtonList from '@/components/ButtonList'
 
+
+const db = firebase.firestore()
+
 export default {
-	components: { ButtonList }
+	components: { ButtonList },
+	created() {
+		// db.collection("games").get().then(querySnapshot => {
+		// 	querySnapshot.forEach(doc => {
+		// 		this.teams.push(doc.data())
+		// 	})
+		// })
+	}
 }
 </script>
 

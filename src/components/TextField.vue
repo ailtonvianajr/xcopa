@@ -1,5 +1,5 @@
 <template lang="pug">
-  input.text-field
+  input.text-field(@input="$emit('onSelectDate', $event.target.value)")
 </template>
 
 <script>

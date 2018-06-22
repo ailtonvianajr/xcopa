@@ -19,7 +19,6 @@ import SignIn from '@/pages/Auth/SignIn'
 import Profile from '@/pages/Profile/Profile'
 import ChangePassword from '@/pages/Profile/ChangePassword'
 
-Vue.use(Router)
 
 export default new Router({
   routes: [

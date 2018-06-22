@@ -12,12 +12,9 @@
 </template>
 
 <script>
-import mFirebase from '@/modules/firebase-setup'
 import XButton from '@/components/XButton'
 import TextField from '@/components/TextField'
 
-
-const db = mFirebase.firestore()
 
 export default {
 	components: { XButton, TextField },

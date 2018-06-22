@@ -37,9 +37,6 @@ export default {
 			required: false
 		}
 	},
-	mounted () {
-		console.log(this.flag)
-	},
 	methods: {
 		buttonClick () {
 			if (this.link && this.link != 'back') {

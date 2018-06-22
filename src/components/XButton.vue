@@ -21,6 +21,8 @@ export default {
         this.$router.push({ name : this.link })
       } else if ( this.link && this.link == 'back' ) {
         this.$router.go(-1)
+      } else {
+        this.$emit('onClick')
       }
     }
   },

@@ -15,11 +15,11 @@
 </template>
 
 <script>
-import mFirebase from '@/modules/firebase-setup'
+import firebase from '@/modules/firebase-setup'
 import ButtonList from '@/components/ButtonList'
 
 
-const db = mFirebase.firestore()
+const db = firebase.firestore()
 
 export default {
 	components: { ButtonList },
@@ -29,7 +29,9 @@ export default {
 	created() {
 		db.collection("teams").get().then(querySnapshot => {
 			querySnapshot.forEach(doc => {
-				this.teams.push(doc.data())
+				let team = doc.data()
+				team.id = doc.id
+				this.teams.push(team)
 			})
 		})
 	}
