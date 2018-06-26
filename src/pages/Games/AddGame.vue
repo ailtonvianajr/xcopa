@@ -26,7 +26,10 @@ const db = firebase.firestore()
 export default {
 	components: { TextField, XButton, XSelect, Loading },
 	data: () => ({
-		teams: []
+		teams: [],
+		teamOne: {},
+		teamTwo: {},
+		date: ''
 	}),
 	created() {
 		db.collection("teams").get().then(querySnapshot => {
@@ -35,20 +38,38 @@ export default {
 				team.id = doc.id
 				this.teams.push(team)
 			})
+			this.teamOne = this.teams[0]
+			this.teamTwo = this.teams[0]
 		})
 	},
 	methods: {
 		getFirstTeam(team) {
-			console.log('first:', team)
+			this.teamOne = team
 		},
 		getSecondTeam(team) {
-			console.log('second:', team)
+			this.teamTwo = team
 		},
 		emitDate(value) {
-			console.log('data:', value)
+			this.date = value
 		},
 		addGame() {
-			console.log('Salva jogo...')
+
+			if (!this.teamOne.id) return;
+			if (!this.teamTwo.id) return;
+			if (!this.date.length) return;
+
+			db.collection("games").add({
+				teamOne: this.teamOne,
+				teamTwo: this.teamTwo,
+				date: this.date
+			})
+			.then(docRef => {
+				console.log("Jogo criado com sucesso!")
+				this.$router.back()
+			})
+			.catch(error => {
+				console.error("Error adding document: ", error)
+			})
 		}
 	}
 }

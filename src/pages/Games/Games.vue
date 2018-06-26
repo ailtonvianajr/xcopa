@@ -5,7 +5,12 @@
 			.container
 				button-list(title="Novo", subtitle="Criar novo jogo", link="AddGame")
 				span.divider Jogos ativos
-				button-list(template="game", title="Brasil x Suiça", link="GameDetails")
+				button-list(
+					v-for="(game, key) in games",
+					:key="key",
+					template="game",
+					:title="game.teamOne.name + ' x ' + game.teamTwo.name",
+					link="GameDetails")
 </template>
 
 <script>
@@ -17,12 +22,15 @@ const db = firebase.firestore()
 
 export default {
 	components: { ButtonList },
+	data: () => ({
+		games: []
+	}),
 	created() {
-		// db.collection("games").get().then(querySnapshot => {
-		// 	querySnapshot.forEach(doc => {
-		// 		this.teams.push(doc.data())
-		// 	})
-		// })
+		db.collection("games").get().then(querySnapshot => {
+			querySnapshot.forEach(doc => {
+				this.games.push(doc.data())
+			})
+		})
 	}
 }
 </script>
